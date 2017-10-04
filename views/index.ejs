@@ -1,0 +1,22 @@
+<body style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+    <h1>Welcome to the Great Number Game!</h1>
+    <span>I am thinking of a number between 1 and 100</span>
+    <br>
+    <span>Take a guess!</span>
+    <% if(status == "toohigh") { %>
+        <h1 style="color: red;">Too High!</h1>
+    <% } %>
+    <% if(status == "toolow") { %>
+        <h1 style="color: red;">Too Low!</h1>
+    <% } %>
+    <% if(status != "correct") { %>
+        <form action="/process" method="post" style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+            <input type="text" name="guess">
+            <br>
+            <input type="submit" value="Submit">
+        </form>
+    <% } else { %>
+        <h1 style="color: green;"><%=number %> was the number!</h1>
+        <a href="/reset"><button>Play Again!</button></a>
+    <% } %>
+</body>
